@@ -1,0 +1,16 @@
+<ul>
+
+<% if user_signed_in? %>
+ <li><%= link_to "sign out ", destroy_user_session_path,method: :delete %></li>
+ <li> <%=current_user.email %></li>
+ <li> username : <%= current_user.full_name %> </li>
+ <li> phone_number : <%= current_user.phone_number %> </li>
+ <%= current_user.role %>
+
+
+ <% else%>
+ <li><%= link_to "sign in ", new_user_session_path %></li>
+ <li>  <%= link_to "sign up ",new_user_registration_path %></li>
+ <% end%>
+
+ </ul>

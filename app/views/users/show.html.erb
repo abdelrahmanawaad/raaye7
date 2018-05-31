@@ -1,0 +1,47 @@
+<% if is_driver? %>
+<div class="container">
+  <h1> all trips</h1>
+<p>
+  <%= link_to "create new trip" , new_users_trip_path %>
+</p>
+<table class="table table_stripped">
+ <tr>
+   <th>time</th>
+   <th>number</th>
+
+ </tr>
+ <% current_user.trips.each do |trip| %>
+ <tr>
+   <td><%=  trip.departure_time %></td>
+   <td><%=  trip.number_of_seats %></td>
+
+   <td><%= link_to "delete", users_trip_path(trip) , method: :delete ,data: {confirm: "are you sure"} %></td>
+ </tr>
+ <% end %>
+</table>
+
+</div>
+<% else %>
+<div class="container">
+  <h1> all pickups</h1>
+<p>
+  <%= link_to "create new pickup" , new_users_pickup_path %>
+</p>
+<table class="table table_stripped">
+ <tr>
+   <th>time</th>
+   <th>number</th>
+
+ </tr>
+ <% current_user.pickups.each do |pickup| %>
+ <tr>
+   <td><%=  pickup.departure_time %></td>
+  
+
+   <td><%= link_to "delete", users_pickup_path(pickup) , method: :delete ,data: {confirm: "are you sure"} %></td>
+ </tr>
+ <% end %>
+</table>
+
+</div>
+<% end %>

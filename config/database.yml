@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: raaye7_development
+  username: raaye7
+  password: raaye7
+  encoding: unicode
+  host: localhost
+  pool: 5
+
+test:
+  adapter: postgresql
+  database: raaye7_test
+  username: raaye7
+  password: raaye7
+  encoding: unicode
+  host: localhost
+  pool: 5
