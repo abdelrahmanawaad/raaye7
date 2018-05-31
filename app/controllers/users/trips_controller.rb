@@ -30,6 +30,6 @@ class Users::TripsController < ApplicationController
      @trip = Trip.find(params[:id])
     end
    def trip_params
-      params.require(:trip).permit(:number_of_seats,:departure_time,:source,:distination)
+      params.require(:trip).permit(:number_of_seats,:departure_time,:source,:destination)
    end
 end

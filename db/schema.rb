@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20180531052122) do
   enable_extension "plpgsql"
 
   create_table "pickups", force: :cascade do |t|
-    t.integer "source"
-    t.integer "destination"
+    t.string "source"
+    t.string "destination"
     t.datetime "departure_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,13 +30,12 @@ ActiveRecord::Schema.define(version: 20180531052122) do
     t.integer "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trip_id"
     t.index ["longitude", "latitude"], name: "index_places_on_longitude_and_latitude", unique: true
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer "source"
-    t.integer "destination"
+    t.string "source"
+    t.string "destination"
     t.datetime "departure_time"
     t.integer "number_of_seats"
     t.datetime "created_at", null: false

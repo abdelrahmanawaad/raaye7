@@ -8,12 +8,17 @@
  <tr>
    <th>time</th>
    <th>number</th>
+   <th>source</th>
+   <th>destination</th>
 
  </tr>
  <% current_user.trips.each do |trip| %>
  <tr>
    <td><%=  trip.departure_time %></td>
    <td><%=  trip.number_of_seats %></td>
+   <td><%=  Place.find(trip.source).name %></td>
+   <td><%=  Place.find(trip.destination).name %></td>
+
 
    <td><%= link_to "delete", users_trip_path(trip) , method: :delete ,data: {confirm: "are you sure"} %></td>
  </tr>
@@ -31,12 +36,20 @@
  <tr>
    <th>time</th>
    <th>number</th>
+   <th>source</th>
+   <th>destination</th>
+
 
  </tr>
  <% current_user.pickups.each do |pickup| %>
  <tr>
    <td><%=  pickup.departure_time %></td>
-  
+   <td><%=  Place.find(pickup.source).name %></td>
+   <td><%=  Place.find(pickup.destination).name %></td>
+
+
+
+
 
    <td><%= link_to "delete", users_pickup_path(pickup) , method: :delete ,data: {confirm: "are you sure"} %></td>
  </tr>

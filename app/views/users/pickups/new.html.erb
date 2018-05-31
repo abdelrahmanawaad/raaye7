@@ -10,6 +10,12 @@
 
 
  <%= form_for [:users,@pickup] do |f| %>
+ <p> <%= f.label :source %>
+   <%= f.select :source, options_from_collection_for_select(Place.all, "id", "name") %></p>
+ <p>
+   <%= f.label :destination %>
+   <%= f.select :destination, options_from_collection_for_select(Place.all, "id", "name") %></p>
+
 
 
  <p><%= f.label :departure_time%> <br/>
